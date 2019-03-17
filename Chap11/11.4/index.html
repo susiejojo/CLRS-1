@@ -1586,8 +1586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest ii numbers in sorted order" class="md-nav__link">
-      9-1 Largest ii numbers in sorted order
+    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest $i$ numbers in sorted order" class="md-nav__link">
+      9-1 Largest $i$ numbers in sorted order
     </a>
   </li>
 
@@ -5944,7 +5944,7 @@ $$</p>
 </ul>
 <h2 id="114-4-star">11.4-4 $\star$</h2>
 <blockquote>
-<p>Suppose that we use double hashing to resolve collisions—that is, we use the hash function $h(k, i) = (h_1(k) + ih_2(k) \mod m$. Show that if $m$ and $h_2(k)$ have greatest common divisor $d \ge 1$ for some key $k$, then an unsuccessful search for key $k$ examines $(1/d)$th of the hash table before returning to slot $h_1(k)$. Thus, when $d = 1$, so that $m$ and $h_2(k)$ are relatively prime, the search may examine the entire hash table. ($\textit{Hint:}$ See Chapter 31.)</p>
+<p>Suppose that we use double hashing to resolve collisions—that is, we use the hash function $h(k, i) = (h_1(k) + ih_2(k)) \mod m$. Show that if $m$ and $h_2(k)$ have greatest common divisor $d \ge 1$ for some key $k$, then an unsuccessful search for key $k$ examines $(1/d)$th of the hash table before returning to slot $h_1(k)$. Thus, when $d = 1$, so that $m$ and $h_2(k)$ are relatively prime, the search may examine the entire hash table. ($\textit{Hint:}$ See Chapter 31.)</p>
 </blockquote>
 <p>Suppose $d = \gcd(m, h_2(k))$, the $\text{LCM}$ $l = m \cdot h_2(k) / d$.</p>
 <p>Since $d | h_2(k)$, then $m \cdot h_2(k) / d \mod m = 0 \cdot (h_2(k) / d \mod m) = 0$, therefore $(l + ih_2(k)) \mod m = ih_2(k) \mod m$, which means $ih_2(k) \mod m$ has a period of $m / d$.</p>

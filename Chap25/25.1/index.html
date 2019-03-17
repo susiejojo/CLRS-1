@@ -1586,8 +1586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest ii numbers in sorted order" class="md-nav__link">
-      9-1 Largest ii numbers in sorted order
+    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest $i$ numbers in sorted order" class="md-nav__link">
+      9-1 Largest $i$ numbers in sorted order
     </a>
   </li>
 
@@ -6171,7 +6171,7 @@ $$</p>
 <li>$low &lt; m^* \le high$.</li>
 </ol>
 <p><strong>Initialization:</strong> Initially, $m$ is an integer power of $2$ and $m &gt; 2$. Since $d = m / 4$, we have that $d$ is an integer power of $2$ and $d &gt; 1 / 2$, so that $d = 2^p$ for some integer $p \ge 0$. We also have</p>
-<p>(high - low) / 2 = (m - (m / 2)) / 2 = m / 4 = d.</p>
+<p>$$(high - low) / 2 = (m - (m / 2)) / 2 = m / 4 = d.$$</p>
 <p>Finally, $L^{(m)}$ has a negative entry on the diagonal and $L^{(m / 2)}$ does not. Since $low = m / 2$ and $high = m$, we have that $low &lt; m^* \le high$.</p>
 <p><strong>Maintenance:</strong> We use $high$, $low$, and $d$ to denote variable values in a given iteration, and $high'$, $low'$, and $d'$ to denote the same variable values in the next iteration. Thus, we wish to show that $d = 2^p$ for some integer $p \ge -1$ implies $d' = 2^p$ for some integer $p' \ge -1$, that $d = (high - low) / 2$ implies $d' = (high' - low') / 2$, and that $low &lt; m^* \le high$ implies $low' &lt; m^* \le high'$.</p>
 <p>To see that $d' = 2^{p'}$, note that $d' = d / 2$, and so $d = 2^{p - 1}$. The condition that $d \ge 1$ implies that $p \ge 0$, and so $p' \ge -1$.</p>

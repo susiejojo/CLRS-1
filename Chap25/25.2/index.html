@@ -1586,8 +1586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest ii numbers in sorted order" class="md-nav__link">
-      9-1 Largest ii numbers in sorted order
+    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest $i$ numbers in sorted order" class="md-nav__link">
+      9-1 Largest $i$ numbers in sorted order
     </a>
   </li>
 
@@ -6032,19 +6032,21 @@ $$</p>
 <ol>
 <li>
 <p>Check the main-diagonal entries of the result matrix for a negative value. There is a negative weight cycle if and only if $d_{ii}^{(n)} &lt; 0$ for some vertex $i$:</p>
-</li>
+<ul>
+<li>$d_{ii}^{(n)}$ is a path weight from $i$ to itself; so if it is negative, there is a path from $i$ to itself (i.e., a cycle), with negative weight.</li>
 <li>
-<p>$d_{ii}^{(n)}$ is a path weight from $i$ to itself; so if it is negative, there is a path from $i$ to itself (i.e., a cycle), with negative weight.</p>
-</li>
-<li>If there is a negative-weight cycle, consider the one with the fewest vertices.<ul>
+<p>If there is a negative-weight cycle, consider the one with the fewest vertices.</p>
+<ul>
 <li>If it has just one vertex, then some $w_{ii} &lt; 0$, so $d_{ii}$ starts out negative, and since $d$ values are never increased, it is also negative when the algorithm terminates.</li>
 <li>If it has at least two vertices, let $k$ be the highest-numbered vertex in the cycle, and let $i$ be some other vertex in the cycle. $d_{ik}^{(k - 1)}$ and $d_{ki}^{(k - 1)}$ have correct shortest-path weights, because they are not based on negativeweight cycles. (Neither $d_{ik}^{(k - 1)}$ nor $d_{ki}^{(k - 1)}$ can include $k$ as an intermediate vertex, and $i$ and $k$ are on the negative-weight cycle with the fewest vertices.) Since $i \leadsto k \leadsto i$ is a negative-weight cycle, the sum of those two weights is negative, so $d_{ii}^{(k)}$ will be set to a negative value. Since $d$ values are never increased, it is also negative when the algorithm terminates.</li>
 </ul>
 </li>
-</ol>
+</ul>
 <p>In fact, it suffices to check whether $d_{ii}^{(n - 1)} &lt; 0$ for some vertex $i$. Here's why. A negative-weight cycle containing vertex $i$ either contains vertex $n$ or it does not. If it does not, then clearly $d_{ii}^{(n - 1)} &lt; 0$. If the negative-weight cycle contains vertex $n$, then consider $d_{nn}^{(n - 1)}$. This value must be negative, since the cycle, starting and ending at vertex $n$, does not include vertex $n$ as an intermediate vertex.</p>
-<ol>
-<li>Alternatively, one could just run the normal $\text{FLOYD-WARSHALL}$ algorithm one extra iteration to see if any of the $d$ values change. If there are negative cycles, then some shortest-path cost will be cheaper. If there are no such cycles, then no $d$ values will change because the algorithm gives the correct shortest paths.</li>
+</li>
+<li>
+<p>Alternatively, one could just run the normal $\text{FLOYD-WARSHALL}$ algorithm one extra iteration to see if any of the $d$ values change. If there are negative cycles, then some shortest-path cost will be cheaper. If there are no such cycles, then no $d$ values will change because the algorithm gives the correct shortest paths.</p>
+</li>
 </ol>
 <h2 id="252-7">25.2-7</h2>
 <blockquote>

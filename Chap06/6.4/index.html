@@ -1652,8 +1652,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest ii numbers in sorted order" class="md-nav__link">
-      9-1 Largest ii numbers in sorted order
+    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest $i$ numbers in sorted order" class="md-nav__link">
+      9-1 Largest $i$ numbers in sorted order
     </a>
   </li>
 
@@ -5837,8 +5837,10 @@
 <p>Let's assume that the heap is a full binary tree with $n = 2^k - 1$. There are $2^{k - 1}$ leaves and $2^{k - 1} - 1$ inner nodes.</p>
 <p>Let's look at sorting the first $2^{k - 1}$ elements of the heap. Let's consider their arrangement in the heap and color the leaves to be red and the inner nodes to be blue. The colored nodes are a subtree of the heap (otherwise there would be a contradiction). Since there are $2^{k - 1}$ colored nodes, at most $2^{k - 2}$ are red, which means that at least $2^{k - 2} - 1$ are blue.</p>
 <p>While the red nodes can jump directly to the root, the blue nodes need to travel up before they get removed. Let's count the number of swaps to move the blue nodes to the root. The minimal case of swaps is when</p>
-<p>(1) there are $2^{k - 2} - 1$ blue nodes and</p>
-<p>(2) they are arranged in a binary tree.</p>
+<ol>
+<li>there are $2^{k - 2} - 1$ blue nodes and</li>
+<li>they are arranged in a binary tree.</li>
+</ol>
 <p>If there are $d$ such blue nodes, then there would be $i = \lg d$ levels, each containing $2^i$ nodes with length $i$. Thus the number of swaps is,</p>
 <p>$$\sum_{i = 0}^{\lg d}i2^i = 2 + (\lg d - 2)2^{\lg d} = \Omega(d\lg d).$$</p>
 <p>And now for a lazy (but cute) trick. We've figured out a tight bound on sorting half of the heap. We have the following recurrence:</p>

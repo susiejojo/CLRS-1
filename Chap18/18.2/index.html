@@ -1586,8 +1586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest ii numbers in sorted order" class="md-nav__link">
-      9-1 Largest ii numbers in sorted order
+    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest $i$ numbers in sorted order" class="md-nav__link">
+      9-1 Largest $i$ numbers in sorted order
     </a>
   </li>
 
@@ -5854,6 +5854,8 @@
 <blockquote>
 <p>Explain how to find the minimum key stored in a B-tree and how to find the predecessor of a given key stored in a B-tree.</p>
 </blockquote>
+<ul>
+<li>
 <p>Finding the minimum in a B-tree is quite similar to finding a minimum in a binary search tree. We need to find the left most leaf for the given root, and return the first key.</p>
 <ul>
 <li><strong>PRE:</strong> $x$ is a node on the B-tree $T$. The top level call is $\text{B-TREE-FIND-MIN}(T.root)$.</li>
@@ -5877,18 +5879,18 @@
 </pre></div>
 </td></tr></table>
 
+</li>
+<li>
 <p>Finding the predecessor of a given key $x.key_i$ is according to the following rules:</p>
 <ol>
 <li>If $x$ is not a leaf, return the maximum key in the $i$-th child of $x$, which is also the maximum key of the subtree rooted at $x.c_i$.</li>
 <li>If $x$ is a leaf and $i &gt; 1$, return the $(i - 1)$st key of $x$, i.e., $x.key_{i - 1}$.</li>
 <li>
 <p>Otherwise, look for the last node y (from the bottom up) and $j &gt; 0$, such that $x.key_i$ is the leftmost key in $y.c_j$; if $j = 1$, return $\text{NIL}$ since $x.key_i$ is the minimum key in the tree; otherwise we return $y.key_{j - 1}$.</p>
-</li>
-<li>
-<p><strong>PRE:</strong> $x$ is a node on the B-tree $T$. $i$ is the index of the key.</p>
-</li>
+<ul>
+<li><strong>PRE:</strong> $x$ is a node on the B-tree $T$. $i$ is the index of the key.</li>
 <li><strong>POST:</strong> $\text{FCTVAL}$ is the predecessor of $x.key_i$.</li>
-</ol>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
  2
  3
@@ -5955,6 +5957,10 @@
 </pre></div>
 </td></tr></table>
 
+</li>
+</ol>
+</li>
+</ul>
 <h2 id="182-4-star">18.2-4 $\star$</h2>
 <blockquote>
 <p>Suppose that we insert the keys $\{1, 2, \ldots, n\}$ into an empty B-tree with minimum degree 2. How many nodes does the final B-tree have?</p>

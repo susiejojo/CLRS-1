@@ -1586,8 +1586,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest ii numbers in sorted order" class="md-nav__link">
-      9-1 Largest ii numbers in sorted order
+    <a href="../../Chap09/Problems/9-1/" title="9-1 Largest $i$ numbers in sorted order" class="md-nav__link">
+      9-1 Largest $i$ numbers in sorted order
     </a>
   </li>
 
@@ -5909,9 +5909,11 @@
 <li>
 <p>The Fibonacci heap implementation will be asymptotically faster so long as $E = \omega(V)$. Suppose that we have some function that grows more quickly than linear, say $f$, and $E = f(V)$.</p>
 </li>
-<li>The binary heap implementation will have runtime of</li>
-</ul>
+<li>
+<p>The binary heap implementation will have runtime of</p>
 <p>$$O((V + E)\lg V) = O((V + f(V))\lg V) = O(f(V)\lg V).$$</p>
+</li>
+</ul>
 <p>However, we have that the runtime of the Fibonacci heap implementation will have runtime of</p>
 <p>$$O(E + V\lg V) = O(f(V) + V\lg V).$$</p>
 <p>This runtime is either $O(f(V))$ or $O(V\lg V)$ depending on if $f(V)$ grows more or less quickly than $V\lg V$ respectively.</p>
