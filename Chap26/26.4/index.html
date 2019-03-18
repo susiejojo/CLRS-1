@@ -5910,7 +5910,7 @@ $$</p>
 <p>Suppose that we have found a maximum flow in a flow network $G = (V, E)$ using a push-relabel algorithm. Give a fast algorithm to find a minimum cut in $G$.</p>
 </blockquote>
 <p>We can find a minimum cut, given a maximum flow found in $G = (V, E)$ by a push-relabel algorithm, in $O(V)$ time. First, find a height $\hat h$ such that $0 &lt; \hat h &lt; |V|$ and there is no vertex whose height equals $\hat h$ at termination of the algorithm. We need consider only $|V| - 2$ vertices, since $s.h = |V|$ and $t.h = 0$. Because $\hat h$ can be one of at most $|V| - 1$ possible values, we know that for at least one number in $1, 2, \ldots, |V| - 1$, there will be no vertex of that height. Hence, $\hat h$ is well defined, and it is easy to find in $O(V)$ time by using a simple boolean array indexed by heights $1, 2, \ldots, |V| - 1$.</p>
-<p>Let $S = {u \in V: u.h &gt; \hat h}$ and $T = {v \in V: v.h &lt; \hat h}$. Because we know that $s.h = |V| &gt; \hat h$, we have $s \in S$, and because $t.h = 0 &lt; \hat h$, y we have $t \in T$, as required for a cut.</p>
+<p>Let $S = \{u \in V: u.h &gt; \hat h\}$ and $T = \{v \in V: v.h &lt; \hat h\}$. Because we know that $s.h = |V| &gt; \hat h$, we have $s \in S$, and because $t.h = 0 &lt; \hat h$, y we have $t \in T$, as required for a cut.</p>
 <p>We need to show that $f(u, v) = c(u, v)$, i.e., that $(u, v) \notin E_f$, for all $u \in S$ and $v \in T$. Once we do that, we have that $f(S, T) = c(S, T)$, and by Corollary 26.5, $(S, T)$ is a minimum cut.</p>
 <p>Suppose for the purpose of contradiction that there exist vertices $u \in S$ and $v \in T$ such that $(u, v) \in E_f$. Because $h$ is always maintained as a height function (Lemma 26.16), we have that $u.h \le v.h + 1$. But we also have $v.h &lt; \hat h &lt; u.h$, and because all values are integer, $v.h \le u.h - 2$. Thus, we have $u.h \le v.h + 1 \le u.h - 2 + 1 = u.h - 1$, which gives the contradiction that $u.height \le u.height - 1$. Thus, $(S, T)$ is a minimum cut.</p>
 <h2 id="264-5">26.4-5</h2>
@@ -5921,7 +5921,7 @@ $$</p>
 <p>Keeping track of those that vertices of $L$ that are still overflowing can be done by a simple bit vector. Then, we relabel everything in R and push to the last vertex. Once these operations have been done, The only possible valid operations are to relabel the vertices of $L$ that weren't able to find an edge that they could push their flow along, so could possibly have to get a push back from $R$ to $L$. This continues until there are no more operations to do. This takes time of $O(V(E + V))$.</p>
 <h2 id="264-6">26.4-6</h2>
 <blockquote>
-<p>Suppose that all edge capacities in a flow network $G = (V, E)$ are in the set ${1, 2, \ldots, k}$. Analyze the running time of the generic push-relabel algorithm in terms of $|V|$, $|E|$, and $k$. ($\textit{Hint:}$ How many times can each edge support a nonsaturating push before it becomes saturated?)</p>
+<p>Suppose that all edge capacities in a flow network $G = (V, E)$ are in the set $\{1, 2, \ldots, k\}$. Analyze the running time of the generic push-relabel algorithm in terms of $|V|$, $|E|$, and $k$. ($\textit{Hint:}$ How many times can each edge support a nonsaturating push before it becomes saturated?)</p>
 </blockquote>
 <p>The number of relabel operations and saturating pushes is the same as before. An edge can handle at most $k$ nonsaturating pushes before it becomes saturated, so the number of nonsaturating pushes is at most $2k|V||E|$. Thus, the total number of basic operations is at most $2|V|^2 + 2|V||E| + 2k|V||E| = O(kVE)$.</p>
 <h2 id="264-7">26.4-7</h2>
@@ -5942,7 +5942,7 @@ $$</p>
 </blockquote>
 <p>We'll prove the claim by induction on the number of push and relabel operations. Initially, we have $u.h = |V|$ if $u = s$ and $0$ otherwise. We have $s.h - |V| = 0 \le \delta_f(s, s) = 0$ and $u.h = 0 \le \delta_f(u, t)$ for all $u \ne s$, so the claim holds prior to the first iteration of the while loop on line 2 of the $\text{GENERIC-PUSH-RELABEL}$ algorithm.</p>
 <p>Suppose that the properties have been maintained thus far. If the next iteration is a nonsaturating push then the properties are maintained because the heights and existence of edges in the residual network are preserved. If it is a saturating push then edge $(u, v)$ is removed from the residual network, which increases both $\delta_f(u, t)$ and $\delta_f(u, s)$, so the properties are maintained regardless of the height of $u$.</p>
-<p>Now suppose that the next iteration causes a relabel of vertex $u$. For all $v$ such that $(u, v) \in E_f$ we must have $u.h \le v.h$. Let $v' = \min{v.h \mid (u,v) \in E_f}$. There are two cases to consider.</p>
+<p>Now suppose that the next iteration causes a relabel of vertex $u$. For all $v$ such that $(u, v) \in E_f$ we must have $u.h \le v.h$. Let $v' = \min\{v.h \mid (u,v) \in E_f\}$. There are two cases to consider.</p>
 <ul>
 <li>
 <p>First, suppose that $v.h &lt; |V|$. Then after relabeling we have</p>

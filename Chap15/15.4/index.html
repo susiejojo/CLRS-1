@@ -5884,17 +5884,13 @@
 <p>Actually only a little more than one row's worth of $c$ entries—$\min(m, n) + 1$ entries—are needed during the computation. The only entries needed in the table when it is time to compute $c[i, j]$ are $c[i, k]$ for $k \le j - 1$ (i.e., earlier entries in the current row, which will be needed to compute the next row); and $c[i - 1, k]$ for $k \ge j - 1$ (i.e., entries in the previous row that are still needed to compute the rest of the current row). This is one entry for each $k$ from $1$ to $\min(m, n)$ except that there are two entries with $k = j - 1$, hence the additional entry needed besides the one row's worth of entries.</p>
 <p>We can thus do away with the $c$ table as follows:</p>
 <ul>
-<li>
-<p>Use an array a of length $\min(m, n) + 1$ to hold the appropriate entries of $c$. At the time $c[i, j]$ is to be computed, $a$ will hold the following entries:</p>
-<ul>
+<li>Use an array a of length $\min(m, n) + 1$ to hold the appropriate entries of $c$. At the time $c[i, j]$ is to be computed, $a$ will hold the following entries:<ul>
 <li>$a[k] = c[i, k]$ for $1 \le k &lt; j - 1$ (i.e., earlier entries in the current "row"),</li>
 <li>$a[k] = c[i - 1, k]$ for $k \ge j - 1$ (i.e., entries in the previous "row"),</li>
 <li>$a[0] = c[i, j - 1]$ (i.e., the previous entry computed, which couldn't be put into the "right" place in a without erasing the still-needed $c[i - 1, j - 1]$).</li>
 </ul>
 </li>
-<li>
-<p>Initialize a to all $0$ and compute the entries from left to right.</p>
-<ul>
+<li>Initialize a to all $0$ and compute the entries from left to right.<ul>
 <li>Note that the 3 values needed to compute $c[i, j]$ for $j &gt; 1$ are in $a[0] = c[i, j - 1], a[ j - 1] = c[i - 1, j - 1]$, and $a[ j] = c[i - 1, j]$.</li>
 <li>When $c[i, j]$ has been computed, move $a[0](c[i, j - 1])$ to its "correct" place, $a[j - 1]$, and put $c[i, j]$ in $a[0]$.</li>
 </ul>

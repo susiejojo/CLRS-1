@@ -5915,7 +5915,7 @@ $$</p>
 </blockquote>
 <p>Let $A(n)$ denote the probability that when quicksorting a list of length $n$, some pivot is selected to not be in the middle $n^{1 - k / 2}$ of the numberes. This doesn't happen with probability $\frac{1}{n^{k / 2}}$. Then, we have that the two subproblems are of size $n_1, n_2$ with $n_1 + n_2 = n - 1$, then</p>
 <p>$$A(n) \le \frac{1}{n^{k / 2}} + T(n_1)+T(n_2).$$</p>
-<p>Since we bounded the depth by $O(1 / \lg n)$ let ${a_{i, j}}_i$ be all the subproblem sizes left at depth $j$,</p>
+<p>Since we bounded the depth by $O(1 / \lg n)$ let $\{a_{i, j}\}_i$ be all the subproblem sizes left at depth $j$,</p>
 <p>$$A(n) \le \frac{1}{n^{k / 2}} \sum_j\sum_i \frac{1}{a}.$$</p>
                 
                   

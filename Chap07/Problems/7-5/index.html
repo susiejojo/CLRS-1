@@ -5697,10 +5697,7 @@
 <p><strong>d.</strong> Argue that in the $\Omega(n\lg n)$ running time of quicksort, the median-of-3 method affects only the constant factor.</p>
 </blockquote>
 <p><strong>a.</strong> $p_i$ is the probability that a randomly selected subset of size three has the $A'[i]$ as it's middle element. There are 6 possible orderings of the three elements selected. So, suppose that $S'$ is the set of three elements selected.</p>
-<p>We will compute the probability that the second element of $S'$ is $A'[i]$ among all possible $3$-sets we can pick, since there are exactly six ordered $3$-sets corresponding to each $3$-set, these probabilities will be equal. We will compute
-the probability that $S'[2] = A[i]$. For any such $S'$, we would need to select
-the first element from $[i - 1]$ and the third from ${i + 1, \ldots , n}$. So, there are $(i - 1)(n - i)$ such $3$-sets. The total number of $3$-sets is $\binom{n}{3} = \frac{n(n - 1)(n - 2)}{6}$.
-So,</p>
+<p>We will compute the probability that the second element of $S'$ is $A'[i]$ among all possible $3$-sets we can pick, since there are exactly six ordered $3$-sets corresponding to each $3$-set, these probabilities will be equal. We will compute the probability that $S'[2] = A[i]$. For any such $S'$, we would need to select the first element from $[i - 1]$ and the third from ${i + 1, \ldots , n}$. So, there are $(i - 1)(n - i)$ such $3$-sets. The total number of $3$-sets is $\binom{n}{3} = \frac{n(n - 1)(n - 2)}{6}$. So,</p>
 <p>$$p_i = \frac{6(n - i)(i - 1)}{n(n - 1)(n - 2)}.$$</p>
 <p><strong>b.</strong> If we let $i = \lfloor \frac{n + 1}{2} \rfloor$, the previous result gets us an increase of</p>
 <p>$$\frac{6(\lfloor\frac{n - 1}{2}\rfloor)(n - \lfloor\frac{n + 1}{2}\rfloor)}{n(n - 1)(n - 2)} - \frac{1}{n}$$</p>

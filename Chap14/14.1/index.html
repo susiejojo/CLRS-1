@@ -5938,7 +5938,7 @@
 <p>Let $A[1..n]$ be the array of $n$ distinct numbers.</p>
 <p>One way to count the inversions is to add up, for each element, the number of larger elements that precede it in the array:</p>
 <p>$$\text{\# of inversions} = \sum_{j = 1}^n |Inv(j)|,$$</p>
-<p>where $Inv(j) = {i: i &lt; j \text{ and } A[i] &gt; A[j]}$.</p>
+<p>where $Inv(j) = \{i: i &lt; j \text{ and } A[i] &gt; A[j]\}$.</p>
 <p>Note that $|Inv(j)|$ is related to $A[j]$'s rank in the subarray $A[1..j]$ because the elements in $Inv(j)$ are the reason that $A[j]$ is not positioned according to its rank. Let $r(j)$ be the rank of $A[j]$ in $A[1..j]$. Then $j = r(j) + |Inv(j)|$, so we can compute</p>
 <p>$$|Inv(j)| = j - r(j)$$</p>
 <p>by inserting $A[1], \ldots, A[n]$ into an order-statistic tree and using $\text{OS-RANK}$ to find the rank of each $A[j]$ in the tree immediately after it is inserted into the tree. (This $\text{OS-RANK}$ value is $r(j)$.)</p>

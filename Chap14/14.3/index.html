@@ -5958,13 +5958,13 @@
 </blockquote>
 <ol>
 <li>
-<p>Underlying data structure:<br />
-   A red-black tree in which the numbers in the set are stored simply as the keys of the nodes.<br />
-   $\text{SEARCH}$ is then just the ordinary $\text{TREE-SEARCH}$ for binary search trees, which runs in $O(\lg n)$ time on red-black trees.</p>
+<p>Underlying data structure:  </p>
+<p>A red-black tree in which the numbers in the set are stored simply as the keys of the nodes.  </p>
+<p>$\text{SEARCH}$ is then just the ordinary $\text{TREE-SEARCH}$ for binary search trees, which runs in $O(\lg n)$ time on red-black trees.</p>
 </li>
 <li>
-<p>Additional information:<br />
-   The red-black tree is augmented by the following attributes in each node $x$:</p>
+<p>Additional information:  </p>
+<p>The red-black tree is augmented by the following attributes in each node $x$:</p>
 <ul>
 <li>$x.min\text-gap$ contains the minimum gap in the subtree rooted at $x$. It has the magnitude of the difference of the two closest numbers in the subtree rooted at $x$. If $x$ is a leaf (its children are all $T.nil$), let $x.min\text-gap = \infty$.</li>
 <li>$x.min\text-val$ contains the minimum value ($key$) in the subtree rooted at $x$.</li>
@@ -5972,8 +5972,8 @@
 </ul>
 </li>
 <li>
-<p>Maintaining the information:<br />
-   The three attributes added to the tree can each be computed from information in the node and its children. Hence by Theorem 14.1, they can be maintained during insertion and deletion without affecting the $O(\lg n)$ running time:</p>
+<p>Maintaining the information:  </p>
+<p>The three attributes added to the tree can each be computed from information in the node and its children. Hence by Theorem 14.1, they can be maintained during insertion and deletion without affecting the $O(\lg n)$ running time:</p>
 <p>$$
 x.min\text-val =
 \begin{cases}
@@ -6000,9 +6000,9 @@ $$</p>
 <p>In fact, the reason for defining the $min\text-val$ and $min\text-val$ attributes is to make it possible to compute $min\text-gap$ from information at the node and its children.</p>
 </li>
 <li>
-<p>New operation:<br />
-   $\text{MIN-GAP}$ simply returns the $min\text-gap$ stored at the tree root. Thus, its running time is $O(1)$.<br />
-   Note that in addition (not asked for in the exercise), it is possible to find the two closest numbers in $O(\lg n)$ time. Starting from the root, look for where the minimum gap (the one stored at the root) came from. At each node $x$, simulate the computation of $x.min\text-gap$ to figure out where $x.min\text-gap$ came from. If it came from a subtree's $min\text-gap$ attribute, continue the search in that subtree. If it came from a computation with $x$'s key, then $x$ and that other number are the closest numbers.</p>
+<p>New operation:  </p>
+<p>$\text{MIN-GAP}$ simply returns the $min\text-gap$ stored at the tree root. Thus, its running time is $O(1)$.  </p>
+<p>Note that in addition (not asked for in the exercise), it is possible to find the two closest numbers in $O(\lg n)$ time. Starting from the root, look for where the minimum gap (the one stored at the root) came from. At each node $x$, simulate the computation of $x.min\text-gap$ to figure out where $x.min\text-gap$ came from. If it came from a subtree's $min\text-gap$ attribute, continue the search in that subtree. If it came from a computation with $x$'s key, then $x$ and that other number are the closest numbers.</p>
 </li>
 </ol>
 <h2 id="143-7-star">14.3-7 $\star$</h2>
@@ -6011,12 +6011,8 @@ $$</p>
 </blockquote>
 <p>General idea: Move a sweep line from left to right, while maintaining the set of rectangles currently intersected by the line in an interval tree. The interval tree will organize all rectangles whose $x$ interval includes the current position of the sweep line, and it will be based on the $y$ intervals of the rectangles, so that any overlapping $y$ intervals in the interval tree correspond to overlapping rectangles. Details:</p>
 <ol>
-<li>
-<p>Sort the rectangles by their $x$-coordinates. (Actually, each rectangle must appear twice in the sorted list—once for its left $x$-coordinate and once for its right $x$-coordinate.)</p>
-</li>
-<li>
-<p>Scan the sorted list (from lowest to highest $x$-coordinate).</p>
-<ul>
+<li>Sort the rectangles by their $x$-coordinates. (Actually, each rectangle must appear twice in the sorted list—once for its left $x$-coordinate and once for its right $x$-coordinate.)</li>
+<li>Scan the sorted list (from lowest to highest $x$-coordinate).<ul>
 <li>When an $x$-coordinate of a left edge is found, check whether the rectangle's $y$-coordinate interval overlaps an interval in the tree, and insert the rectangle (keyed on its $y$-coordinate interval) into the tree.</li>
 <li>When an $x$-coordinate of a right edge is found, delete the rectangle from the interval tree.</li>
 </ul>

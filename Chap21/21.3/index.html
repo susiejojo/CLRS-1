@@ -5817,7 +5817,7 @@
 <blockquote>
 <p>Give a sequence of $m$ $\text{MAKE-SET}$, $\text{UNION}$, and $\text{FIND-SET}$ operations, $n$ of which are $\text{MAKE-SET}$ operations, that takes $\Omega(m\lg n)$ time when we use union by rank only.</p>
 </blockquote>
-<p>You need to find a sequence of $m$ operations on $n$ elements that takes $\Omega(m\lg n)$ time. Start with $n$ $\text{MAKE-SET}$s to create singleton sets ${x_1}, {x_2}, \ldots, {x_n}$. Next perform the $n - 1$ $\text{UNION}$ operations shown below to create a single set whose tree has depth $\lg n$.</p>
+<p>You need to find a sequence of $m$ operations on $n$ elements that takes $\Omega(m\lg n)$ time. Start with $n$ $\text{MAKE-SET}$s to create singleton sets $\{x_1\}, \{x_2\}, \ldots, \{x_n\}$. Next perform the $n - 1$ $\text{UNION}$ operations shown below to create a single set whose tree has depth $\lg n$.</p>
 <p>$$
 \begin{array}{ll}
 \hline

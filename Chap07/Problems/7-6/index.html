@@ -5732,8 +5732,7 @@
 </td></tr></table>
 
 <p>When intervals overlap we treat them as equal elements, thus cutting down on the time required to sort.</p>
-<p><strong>b.</strong> For distinct intervals the algorithm runs exactly as regular quicksort does, so its expected runtime will be $\Theta(n\lg n)$ in general. If all of the intervals overlap
-then the condition on line 12 will be satisfied for every iteration of the <strong>for</strong> loop. Thus the algorithm returns $p$ and $r$, so only empty arrays remain to be sorted. $\text{FUZZY-PARTITION}$ will only be called a single time, and since its runtime remains $\Theta(n)$, the total expected runtime is $\Theta(n)$.</p>
+<p><strong>b.</strong> For distinct intervals the algorithm runs exactly as regular quicksort does, so its expected runtime will be $\Theta(n\lg n)$ in general. If all of the intervals overlap then the condition on line 12 will be satisfied for every iteration of the <strong>for</strong> loop. Thus the algorithm returns $p$ and $r$, so only empty arrays remain to be sorted. $\text{FUZZY-PARTITION}$ will only be called a single time, and since its runtime remains $\Theta(n)$, the total expected runtime is $\Theta(n)$.</p>
                 
                   
                 

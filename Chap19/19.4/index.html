@@ -5774,7 +5774,7 @@
 <p>Suppose we generalize the cascading-cut rule to cut a node $x$ from its parent as soon as it loses its $k$th child, for some integer constant $k$. (The rule in Section 19.3 uses $k = 2$.) For what values of $k$ is $D(n) = O(\lg n)$?</p>
 </blockquote>
 <p>Following the proof of lemma 19.1, if $x$ is any node if a Fibonacci heap, $x.degree = m$, and $x$ has children $y_1, y_2, \ldots, y_m$, then $y_1.degree \ge 0$ and $y_i.degree \ge i - k$. Thus, if $s_m$ denotes the fewest nodes possible in a node of degree $m$, then we have $s_0 = 1, s_1 = 2, \ldots, s_{k - 1} = k$ and in general, $s_m = k + \sum_{i = 0}^{m - k} s_i$. Thus, the difference between $s_m$ and $s_{m - 1}$ is $s_{m - k}$.</p>
-<p>Let ${f_m}$ be the sequence such that $f_m = m + 1$ for $0 \le m &lt; k$ and $f_m = f_{m - 1} + f_{m - k}$ for $m \ge k$.</p>
+<p>Let $\{f_m\}$ be the sequence such that $f_m = m + 1$ for $0 \le m &lt; k$ and $f_m = f_{m - 1} + f_{m - k}$ for $m \ge k$.</p>
 <p>If $F(x)$ is the generating function for $f_m$ then we have $F(x) = \frac{1 - x^k}{(1 - x)(1 - x - x^k)}$. Let $\alpha$ be a root of $x^k = x^{k - 1} + 1$. We'll show by induction that $f_{m + k} \ge \alpha^m$. For the base cases:</p>
 <p>$$
 \begin{aligned}

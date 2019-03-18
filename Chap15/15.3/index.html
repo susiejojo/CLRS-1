@@ -5874,8 +5874,8 @@ $$</p>
 </blockquote>
 <p>Suppose that we are given matrices $A_1$, $A_2$, $A_3$, and $A_4$ with dimensions such that</p>
 <p>$$p_0, p_1, p_2, p_3, p_4 = 1000, 100, 20, 10, 1000.$$</p>
-<p>Then $p_0 p_k p_4$ is minimized when $k = 3$, so we need to solve the subproblem of multiplying $A_1 A_2 A_3$, and also $A_4$ which is solved automatically. By her algorithm, this is solved by splitting at $k = 2$. Thus, the full parenthesization is $(((A_1A_2)A_3)A_4)$.
-This requires</p>
+<p>Then $p_0 p_k p_4$ is minimized when $k = 3$, so we need to solve the subproblem of multiplying $A_1 A_2 A_3$, and also $A_4$ which is solved automatically. By her algorithm, this is solved by splitting at $k = 2$. Thus, the full parenthesization is $(((A_1A_2)A_3)A_4)$.</p>
+<p>This requires</p>
 <p>$$1000 \cdot 100 \cdot 20 + 1000 \cdot 20 \cdot 10 + 1000 \cdot 10 \cdot 1000 = 12200000$$</p>
 <p>scalar multiplications.</p>
 <p>On the other hand, suppose we had fully parenthesized the matrices to multiply as $((A_1(A_2A_3))A_4)$. Then we would only require</p>

@@ -5700,7 +5700,7 @@
 <p><strong>b.</strong> To solve the problem, an algorithm has to perform a series of comparisons until it has enough information to determine the matching. We can view the computation of the algorithm in terms of a decision tree. Every internal node is labeled with two jugs (one red, one blue) which we compare, and has three outgoing edges (red jug smaller, same size, or larger than the blue jug). The leaves are labeled with a unique matching of jugs.</p>
 <p>The height of the decision tree is equal to the worst-case number of comparisons the algorithm has to make to determine the matching. To bound that size, let us first compute the number of possible matchings for n red and n blue jugs.</p>
 <p>If we label the red jugs from $1$ to $n$ and we also label the blue jugs from $1$ to $n$ before starting the comparisons, every outcome of the algorithm can be represented as a set</p>
-<p>$$\text{\{$i, \pi(i): 1 \le i \le n$ and $\pi$ is a permutation on {$1, \ldots, n$}\}},$$</p>
+<p>$$\text{\{$i, \pi(i): 1 \le i \le n$ and $\pi$ is a permutation on \{$1, \ldots, n$\}\}},$$</p>
 <p>which contains the pairs of red jugs (first component) and blue jugs (second component) that are matched up. Since every permutation $\pi$ corresponds to a different outcome, there must be exactly $n!$ different results.</p>
 <p>Now we can bound the height $h$ of our decision tree. Every tree with a branching factor of $3$ (every inner node has at most three children) has at most $3^h$ leaves. Since the decison tree must have at least $n!$ children, it follows that</p>
 <p>$$3^h \ge n! \ge (n / e)^n \Rightarrow h \ge n\log_3 n - n\log_3 e = \Omega(n\lg n).$$</p>
