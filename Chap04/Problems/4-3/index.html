@@ -5720,7 +5720,7 @@ We have $f(n) = n^2 \sqrt n = n^{5 / 2}$ and $n^{\log_b a} = n^{\lg 4} = n^2$. S
 <p>$$
 \begin{aligned}
 \sum_{i = 0}^{\lg n - 1} \frac{n}{\lg n - i}
-    &amp; = n \sum_{i = 1}^{\lg n} \frac{n}{i} \\
+    &amp; = \sum_{i = 1}^{\lg n} \frac{n}{i} \\
     &amp; = n \sum_{i = 1}^{\lg n} 1 / i \\
     &amp; = n \cdot \Theta(\lg\lg n) &amp; \text{(by equation (A.7), the harmonic series)} \\
     &amp; = \Theta(n\lg\lg n).
