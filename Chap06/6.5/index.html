@@ -6026,7 +6026,7 @@
 </pre></div>
 </td></tr></table>
 
-<p><strong>Note:</strong> The following algorithm is wrong. For example, given an array $A = [15, 7, 8, 1, 2, 3, 5]$ which is a max-heap, and if we delete $A[5] = 2$, then it will fail.</p>
+<p><strong>Note:</strong> The following algorithm is wrong. For example, given an array $A = [15, 7, 9, 1, 2, 3, 8]$ which is a max-heap, and if we delete $A[5] = 2$, then it will fail.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
@@ -6039,31 +6039,31 @@
 
 <ul>
 <li>
-<p>$A$ (before)</p>
+<p>before:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      15
     /    \
-   7      8
+   7      9
   / \    / \
- 1   2  3   5
+ 1   2  3   8
 </pre></div>
 </td></tr></table>
 
 </li>
 <li>
-<p>$A$ (after)</p>
+<p>after (which is wrong since $8 &gt; 7$):</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
 4
 5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      15
     /    \
-   7      8
+   7      9
   / \    /
- 1   5  3
+ 1   8  3
 </pre></div>
 </td></tr></table>
 
