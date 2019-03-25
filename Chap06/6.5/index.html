@@ -6013,14 +6013,62 @@
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span>
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">[</span><span class="n">h</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span>
+        <span class="n">MAX</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">HEAP</span><span class="o">-</span><span class="n">INCREASE</span><span class="o">-</span><span class="n">KEY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">])</span>
     <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="n">MAX</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
 
-<p>We just move the last element of the heap to the deleated position and then call $\text{MAX-HEAPIFY}$ on it. This works, because the element is already smaller than its parent (because it was already under it on the heap), but might be larger than its children. $\text{MAX-HEAPIFY}$ restored the heap property.</p>
+<p><strong>Note:</strong> The following algorithm is wrong. For example, given an array $A = [15, 7, 8, 1, 2, 3, 5]$ which is a max-heap, and if we delete $A[5] = 2$, then it will fail.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">HEAP</span><span class="o">-</span><span class="n">DELETE</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span>
+    <span class="n">MAX</span><span class="o">-</span><span class="n">HEAPIFY</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>
+<p>$A$ (before)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      15
+    /    \
+   7      8
+  / \    / \
+ 1   2  3   5
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>$A$ (after)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>      15
+    /    \
+   7      8
+  / \    /
+ 1   5  3
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
 <h2 id="65-9">6.5-9</h2>
 <blockquote>
 <p>Give an $O(n\lg k)$-time algorithm to merge $k$ sorted lists into one sorted list, where $n$ is the total number of elements in all the input lists. ($\textit{Hint:}$ Use a min-heap for $k$-way merging.)</p>
