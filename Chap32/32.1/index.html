@@ -5840,6 +5840,32 @@ $$</p>
 <p>Note that the gap character may occur an arbitrary number of times in the pattern but not at all in the text. Give a polynomial-time algorithm to determine whether such a pattern $P$ occurs in a given text $T$, and analyze the running time of your algorithm.</p>
 </blockquote>
 <p>Dynamic programming, $\Theta(n^2 m)$.</p>
+<p>Thanks to the cpp implementation by @Silver-Snitch <a href="https://github.com/walkccc/CLRS/issues/86">here</a>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">OCCURANCE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="n">P</span><span class="p">.</span><span class="n">length</span>
+        <span class="k">return</span> <span class="nb">true</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="n">T</span><span class="p">.</span><span class="n">length</span>
+        <span class="k">return</span> <span class="nb">false</span>
+    <span class="k">if</span> <span class="n">P</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;◇&#39;</span>
+        <span class="k">return</span> <span class="n">OCCURANCE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">||</span> <span class="n">OCCURANCE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="n">T</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">==</span> <span class="n">P</span><span class="p">[</span><span class="n">p</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">OCCURANCE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="n">p</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">OCCURANCE</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">false</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
